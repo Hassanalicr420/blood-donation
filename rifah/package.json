@@ -1,0 +1,15 @@
+{
+  "name": "rifah-blood-donation",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Rifah Welfare Society blood donation website (Vercel + Postgres)",
+  "engines": { "node": "22.x" },
+  "scripts": {
+    "dev": "node scripts/dev-server.js",
+    "set-admin": "node scripts/set-admin-password.js",
+    "migrate-sqlite": "node --no-warnings scripts/migrate-sqlite.js"
+  },
+  "dependencies": {
+    "pg": "^8.13.0"
+  }
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#a51d35">
+  <meta name="description" content="رفاہ ویلفیئر سوسائٹی کا محفوظ منتظم پینل۔">
+  <title>منتظم لاگ اِن | رفاہ بلڈ ڈونیشن</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="admin.js" defer></script>
+</head>
+<body class="admin-page" data-page="admin">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="رفاہ بلڈ ڈونیشن">
+      <span class="brand-mark" aria-hidden="true">+</span>
+      <span class="brand-copy"><strong>رفاہ بلڈ ڈونیشن</strong><small>رفاہ ویلفیئر سوسائٹی</small></span>
+    </a>
+    <a class="admin-back-link" href="index.html" data-admin-text="backHome">ہوم پیج پر واپس</a>
+    <label class="language-control"><span data-admin-text="languageLabel">زبان</span><select class="language-select" aria-label="زبان منتخب کریں"><option value="ur">اردو</option><option value="en">English</option></select></label>
+  </header>
+
+  <main class="admin-main">
+    <section class="admin-login-card" id="admin-login">
+      <div class="admin-login-icon" aria-hidden="true">+</div>
+      <span class="section-kicker" data-admin-text="adminLabel">منتظم پورٹل</span>
+      <h1 data-admin-text="loginTitle">منتظم لاگ اِن</h1>
+      <p data-admin-text="loginIntro">درخواستوں اور ڈونرز کا محفوظ انتظام کرنے کے لیے سائن اِن کریں۔</p>
+      <form id="login-form">
+        <label class="field"><span data-admin-text="emailLabel">ای میل</span><input name="email" type="email" autocomplete="username" maxlength="254" value="rifahwelfaresociety@gmail.com" required></label>
+        <label class="field"><span data-admin-text="passwordLabel">پاس ورڈ</span><input name="password" type="password" autocomplete="current-password" maxlength="200" required></label>
+        <button class="button button-primary" type="submit" data-admin-text="loginButton">محفوظ طریقے سے لاگ اِن کریں</button>
+        <p class="form-message" id="login-message" role="alert" aria-live="polite"></p>
+      </form>
+      <p class="privacy-note" data-admin-text="loginNotice">منتظم کی رسائی صرف مجاز فرد کے لیے ہے۔ password صرف encrypted hash کی صورت میں محفوظ ہوتا ہے۔</p>
+    </section>
+
+    <section class="admin-dashboard" id="admin-dashboard" hidden>
+      <div class="admin-dashboard-heading">
+        <div><span class="section-kicker" data-admin-text="dashboardLabel">منتظم ڈیش بورڈ</span><h1 data-admin-text="dashboardTitle">درخواستیں اور ڈونرز</h1><p id="admin-welcome"></p></div>
+        <div class="admin-heading-actions">
+          <div class="notification-control">
+            <button class="notification-trigger" id="notification-trigger" type="button" aria-expanded="false" aria-controls="notification-panel" aria-label="نئی درخواستوں کی اطلاعات">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>
+              <span class="notification-badge" id="new-badge" hidden>0</span>
+            </button>
+            <section class="notification-panel" id="notification-panel" aria-labelledby="notification-title" hidden>
+              <h2 id="notification-title" data-admin-text="notifications">نئی درخواستیں</h2>
+              <p class="admin-section-help" data-admin-text="notificationInfo">نئی درخواست قبول یا منسوخ کرنے کے لیے یہاں دیکھیں۔</p>
+              <div class="admin-card-list" id="notification-list" aria-live="polite"></div>
+              <p class="empty-state" id="notification-empty" hidden data-admin-text="noPending">کوئی نئی درخواست زیرِ جائزہ نہیں۔</p>
+            </section>
+          </div>
+          <button class="button button-dark" id="logout-button" type="button" data-admin-text="logout">لاگ آؤٹ</button>
+        </div>
+      </div>
+      <p class="form-message" id="dashboard-message" role="status" aria-live="polite"></p>
+      <section class="admin-stats" aria-label="ڈیش بورڈ خلاصہ">
+        <article><span class="stat-icon">!</span><p data-admin-text="newRequests">نئی درخواستیں</p><strong id="stat-new">0</strong></article>
+        <article><span class="stat-icon">♥</span><p data-admin-text="totalRequests">کل درخواستیں</p><strong id="stat-requests">0</strong></article>
+        <article><span class="stat-icon">+</span><p data-admin-text="registeredDonors">رجسٹرڈ ڈونرز</p><strong id="stat-donors">0</strong></article>
+        <article><span class="stat-icon">✓</span><p data-admin-text="completedRequests">مکمل درخواستیں</p><strong id="stat-fulfilled">0</strong></article>
+      </section>
+
+      <section class="admin-section" id="incoming-section">
+        <div class="admin-section-heading"><div><span class="section-kicker" data-admin-text="inboxLabel">منظور شدہ درخواستیں</span><h2 data-admin-text="incomingRequests">ڈیش بورڈ کی درخواستیں</h2></div></div>
+        <p class="admin-section-help" data-admin-text="acceptedInfo">صرف منظور شدہ درخواستیں یہاں دکھائی جاتی ہیں۔</p>
+        <div class="admin-card-list" id="request-list" aria-live="polite"></div>
+        <p class="empty-state" id="request-empty" hidden data-admin-text="noAccepted">ابھی کوئی منظور شدہ درخواست نہیں۔ نئی درخواستیں گھنٹی میں دیکھیں۔</p>
+      </section>
+
+      <section class="admin-section">
+        <div class="admin-section-heading"><div><span class="section-kicker" data-admin-text="donorLabel">ڈونر ڈائریکٹری</span><h2 data-admin-text="donorListTitle">رجسٹرڈ خون کے عطیہ دہندگان</h2></div></div>
+        <form class="admin-donor-form" id="admin-donor-form">
+          <h3 data-admin-text="addDonor">نیا ڈونر شامل کریں</h3>
+          <label class="field"><span data-admin-text="donorName">نام</span><input name="name" maxlength="80" required></label>
+          <label class="field"><span data-admin-text="phone">رابطہ نمبر</span><input name="phone" type="tel" maxlength="20" required></label>
+          <label class="field"><span data-admin-text="bloodGroup">بلڈ گروپ</span><select name="bloodGroup" required><option value="">—</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select></label>
+          <label class="field"><span data-admin-text="area">علاقہ</span><input name="city" maxlength="80" required></label>
+          <label class="field"><span data-admin-text="age">عمر</span><input name="age" type="number" min="18" max="65" required></label>
+          <label class="field"><span data-admin-text="lastDonation">آخری عطیہ</span><input name="lastDonation" type="date"></label>
+          <button class="button button-primary" type="submit" data-admin-text="addDonorButton">ڈونر شامل کریں</button>
+          <p class="form-message" id="admin-donor-message" role="status" aria-live="polite"></p>
+        </form>
+        <div class="donor-filter-row"><label for="donor-filter" data-admin-text="filterGroup">بلڈ گروپ کے مطابق فلٹر</label><select id="donor-filter"><option value="all" data-admin-text="allGroups">تمام بلڈ گروپس</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select></div>
+        <div class="admin-card-list" id="donor-list"></div>
+        <p class="empty-state" id="donor-empty" hidden data-admin-text="noDonors">ابھی کوئی ڈونر رجسٹر نہیں ہوا۔</p>
+      </section>
+      <p class="admin-security-note" data-admin-text="adminSecurityNote">حساس مریض اور ڈونر معلومات صرف مجاز ٹیم تک محدود رکھیں۔ اس مقامی سرور کو HTTPS کے بغیر انٹرنیٹ پر شائع نہ کریں۔</p>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="footer-brand" href="index.html" data-admin-text="brand">رفاہ بلڈ ڈونیشن</a><p data-admin-text="footerSociety">رفاہ ویلفیئر سوسائٹی، چکنمبر 116/ڈبلیو بی</p><a href="mailto:rifahwelfaresociety@gmail.com">rifahwelfaresociety@gmail.com</a></footer>
+</body>
+</html>

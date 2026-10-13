@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#a51d35"><meta name="description" content="رفاہ ویلفیئر سوسائٹی کو خون کی درخواست بھیجیں۔">
+  <title>خون کی درخواست | رفاہ بلڈ ڈونیشن</title>
+  <link rel="stylesheet" href="styles.css"><script src="app.js" defer></script>
+</head>
+<body data-page="request">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="رفاہ بلڈ ڈونیشن"><span class="brand-mark" aria-hidden="true">+</span><span class="brand-copy"><strong data-i18n="brand">رفاہ بلڈ ڈونیشن</strong><small data-i18n="society">رفاہ ویلفیئر سوسائٹی</small></span></a>
+    <button class="menu-toggle" type="button" aria-label="مینو" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+    <nav class="main-nav" id="main-nav" aria-label="مرکزی مینو"><a class="nav-link" href="request.html" data-i18n="navRequest">خون کی درخواست</a><a class="nav-link" href="tracking.html" data-i18n="navTracking">ٹریکنگ</a><a class="nav-link" href="donate.html" data-i18n="navDonate">خون عطیہ کریں</a><a class="nav-link" href="about.html" data-i18n="navAbout">ہمارے بارے میں</a></nav>
+    <label class="language-control"><span data-i18n="languageLabel">زبان</span><select class="language-select" aria-label="زبان منتخب کریں"><option value="ur">اردو</option><option value="en">English</option></select></label>
+  </header>
+  <main class="page-main">
+    <section class="page-banner"><div class="page-banner-inner"><div><span class="section-kicker" data-i18n="requestKicker">مریض کے لیے مدد</span><h1 data-i18n="requestTitle">خون کی درخواست دیں</h1><p data-i18n="requestIntro">مریض کی معلومات درج کریں۔ درخواست جمع ہونے پر آپ کو ٹریکنگ آئی ڈی ملے گی۔</p></div><img src="assets/blood-donation.svg" alt="خون کے ذریعے مریض کی مدد" data-i18n-alt="requestImageAlt" width="620" height="470" loading="lazy"></div></section>
+    <section class="content-section request-section">
+      <div class="request-layout">
+      <form class="form-card" id="request-form">
+        <div class="form-grid">
+          <label class="field"><span data-i18n="patientName">مریض کا نام <b>*</b></span><input name="patientName" type="text" autocomplete="name" maxlength="80" data-i18n-placeholder="fullNamePlaceholder" placeholder="پورا نام" required></label>
+          <label class="field"><span data-i18n="phone">رابطہ نمبر <b>*</b></span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="03XXXXXXXXX" required></label>
+          <label class="field"><span data-i18n="bloodGroup">بلڈ گروپ <b>*</b></span><select name="bloodGroup" required><option value="" data-i18n="selectBlood">بلڈ گروپ منتخب کریں</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select></label>
+          <label class="field"><span data-i18n="city">شہر / گاؤں <b>*</b></span><input name="city" type="text" maxlength="80" data-i18n-placeholder="cityPlaceholder" placeholder="مثلاً چکنمبر 116/WB" required></label>
+          <label class="field"><span data-i18n="hospital">ہسپتال کا نام <b>*</b></span><input name="hospital" type="text" maxlength="120" data-i18n-placeholder="hospitalPlaceholder" placeholder="ہسپتال کا نام" required></label>
+          <label class="field"><span data-i18n="neededBy">خون کب تک چاہیے؟ <b>*</b></span><input name="neededBy" type="datetime-local" required></label>
+          <label class="field"><span data-i18n="hemoglobin">ہیموگلوبن (Hb)</span><input name="hemoglobin" type="number" min="1" max="30" step="0.1" data-i18n-placeholder="hbPlaceholder" placeholder="مثلاً 7.5"></label>
+          <label class="field"><span data-i18n="condition">بیماری / ضرورت کی تفصیل</span><input name="condition" type="text" maxlength="160" data-i18n-placeholder="conditionPlaceholder" placeholder="ضرورت کی مختصر وجہ"></label>
+          <label class="field field-wide"><span data-i18n="reportImage">میڈیکل رپورٹ کی تصویر <small>(اختیاری)</small></span><input id="report-image" name="reportImage" type="file" accept="image/jpeg,image/png,image/webp"><small class="field-hint" id="file-hint" data-i18n="fileHint">صرف JPG، PNG یا WEBP تصویر؛ زیادہ سے زیادہ 3 MB۔ رپورٹ منتظم کے محفوظ پینل میں رکھی جائے گی۔</small></label>
+          <label class="field field-wide"><span data-i18n="extraInfo">اضافی معلومات</span><textarea name="extraInfo" rows="4" maxlength="500" data-i18n-placeholder="extraPlaceholder" placeholder="یونٹس کی تعداد یا کوئی دوسری ضروری بات"></textarea></label>
+        </div>
+        <label class="consent"><input name="consent" type="checkbox" required><span data-i18n="requestConsent">میں تصدیق کرتا/کرتی ہوں کہ فراہم کردہ معلومات درست ہیں۔ <b>*</b></span></label>
+        <button class="button button-primary" type="submit"><span data-i18n="submitRequest">درخواست جمع کریں</span> <span aria-hidden="true">←</span></button>
+        <p class="form-message" id="request-message" role="status" aria-live="polite"></p>
+        <p class="privacy-note" data-i18n="requestPrivacy"><strong>رازداری:</strong> درخواست اور رپورٹ منتظم کے مقامی SQLite database میں محفوظ ہوں گے۔ حقیقی استعمال میں صرف HTTPS کے ذریعے طبی معلومات بھیجیں۔</p>
+      </form>
+      <aside class="side-info-card">
+        <span class="section-kicker" data-i18n="requestStepsKicker">درخواست دینے سے پہلے</span>
+        <h2 data-i18n="requestStepsTitle">یہ معلومات تیار رکھیں</h2>
+        <ul><li data-i18n="requestTip1">مریض کا درست بلڈ گروپ اور رابطہ نمبر۔</li><li data-i18n="requestTip2">ہسپتال کا نام اور خون کی ضرورت کا وقت۔</li><li data-i18n="requestTip3">اگر دستیاب ہو تو تازہ میڈیکل رپورٹ۔</li></ul>
+        <p data-i18n="requestHelpText">فوری ضرورت ہو تو درخواست کے بعد رفاہ ویلفیئر سوسائٹی کو فون بھی کریں۔</p>
+        <a class="button button-primary" href="tel:03064148116" dir="ltr">0306 4148116</a>
+      </aside>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="footer-brand" href="index.html" data-i18n="brand">رفاہ بلڈ ڈونیشن</a><p data-i18n="footerSociety">رفاہ ویلفیئر سوسائٹی، چکنمبر 116/ڈبلیو بی</p><a href="mailto:rifahwelfaresociety@gmail.com" data-i18n="footerContact">ہم سے رابطہ کریں</a><a class="admin-footer-link" href="admin.html" data-i18n="adminLoginLink">منتظم لاگ اِن</a></footer>
+</body>
+</html>
